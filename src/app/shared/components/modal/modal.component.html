@@ -1,0 +1,126 @@
+<form [formGroup]="bookForm" class="formbook" (keydown.enter)="$event.preventDefault()">
+    <div class="formbook-block">
+        <div class="formbook-item" [ngStyle]="{'display': 'none'}">
+            <mat-form-field appearance="outline">
+                <mat-label>Id</mat-label>
+                <input matInput placeholder="Id" formControlName="id">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="formbook-block">
+        <div class="formbook-item-image">
+                <div class="imageDownload">
+                    <ng-container *ngIf="bookForm.get('image')?.value">
+                      <img [src]="bookForm.get('image')?.value" />
+                      <button
+                        class="deleteButton"
+                        mat-icon-button
+                        (click)="clearImage()"
+                      >
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </ng-container>
+                    <!-- no image -->
+                    <div
+                      *ngIf="!bookForm.get('image')?.value"
+                    >
+                      <mat-icon>file_upload</mat-icon>
+                    </div>
+
+                    <input
+                        #fileInput
+                        class="fileInput"
+                        type="file"
+                        multiple="multiple"
+                        accept="image/*"
+                        (change)="setImage($event)"
+                    />
+                    <input matInput formControlName="image" [hidden]="true" />
+                </div>
+        </div>
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput matTooltip="Max length 100 symbols" formControlName="title">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Year</mat-label>
+                <input matInput matTooltip="Max length 4 symbols and years 1900 >" formControlName="year">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Author</mat-label>
+                <input matInput matTooltip="Max length 40 symbols" formControlName="author">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="formbook-block">
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Edition</mat-label>
+                <input matInput matTooltip="Max length 100 symbols" formControlName="edition">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="formbook-block">
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matTooltip="Max length 1000 symbols"
+                    matInput
+                    formControlName="description"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="2"
+                    cdkAutosizeMaxRows="8"
+                    >
+                </textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="formbook-block">
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Genre</mat-label>
+                <input matInput matTooltip="Max length 70 symbols" formControlName="genre">
+            </mat-form-field>
+        </div>
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Language</mat-label>
+                <!-- <input matInput formControlName="language"> -->
+
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <mat-select formControlName="language">
+                  @for (language of language; track language) {
+                    <mat-option [value]="language.id">{{language.value}}</mat-option>
+                  }
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="formbook-block">
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Pages</mat-label>
+                <input matInput matTooltip="Max length 4 symbols" formControlName="pages">
+            </mat-form-field>
+        </div>
+        <div class="formbook-item">
+            <mat-form-field appearance="outline">
+                <mat-label>Costs</mat-label>
+                <input matInput matTooltip="Max length 5 symbols" formControlName="costs">
+                <mat-icon matSuffix [ngStyle]="{'margin-right': '10px'}">$</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="buttons">
+        <div class="buttons-left">
+            <button mat-flat-button [disabled]="!bookForm.valid" (click)="confirm(bookForm.value)">Save</button>
+            <button mat-stroked-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+        </div>
+        <div class="buttons-right">
+            <button mat-fab (click)="deleteBook()" tabindex="-1">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+</form>

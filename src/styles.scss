@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  .backlinks {
+    margin-bottom: 10px;
+  }
+  .action {
+    cursor: pointer;
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  mat-form-field {
+    width: 100%;
+  }
+
+  // experemental width))))
+  .main-table {
+    .mat-column-image {
+      width: 10%;
+    }
+    .mat-column-title {
+      width: 40%;
+    }
+    .mat-column-author {
+      width: 36%;
+    }
+    .mat-column-year {
+      width: 7%;
+    }
+    .mat-column-action {
+      width: 7%;
+    }
+  }
+}

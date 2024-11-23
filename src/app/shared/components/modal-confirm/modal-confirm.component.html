@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Delete Book</h2>
+<mat-dialog-content>
+    <p> 
+        {{data.title}}
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="confirm()">Yes</button>
+    <button mat-button (click)="cancel()">No</button>
+</mat-dialog-actions>

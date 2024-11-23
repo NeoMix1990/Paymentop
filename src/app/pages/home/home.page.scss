@@ -1,0 +1,37 @@
+.img-block {
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-block {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 1px dashed #000;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.search {
+  margin: 8px;
+  input {
+    border-radius: 16px;
+    height: 40px;
+    padding: 5px 5px 5px 15px;
+    min-width: 260px;
+    border: 1px solid #b7acac;
+  }
+}
