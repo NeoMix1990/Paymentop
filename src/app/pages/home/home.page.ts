@@ -54,7 +54,7 @@ export default class HomePage implements AfterViewInit {
   addEditBook(item?: Book): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       minWidth: 800, minHeight: 400, maxHeight: 600,
-      data: item ? item : null,
+      data: {item: item ? item : null, type: item ? 'edit' : 'create'},
     });
 
     dialogRef.afterClosed().subscribe((result) => {

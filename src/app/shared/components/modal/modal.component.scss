@@ -1,4 +1,74 @@
-.formbook {
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 111;
+}
+.edit {
+    max-width: 40px;
+    margin: 10px auto 0 auto;
+}
+.formbook, .main-block-info {
+    &-header {
+        display: flex;
+        margin-bottom: 10px;
+        &-img {
+            border: 1px dashed #5c5748;
+            margin: 0 10px 10px 0;
+            img {
+                padding: 10px;
+                margin: 0 10px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 135px;
+                height: 190px;
+                text-align: center;
+                justify-content: center;
+            }
+            &-empty {
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+                width: 135px;
+                height: 158px;
+            }
+        }
+        &-title {
+            width: 100%;
+        }
+        &-text {
+            border: 1px solid #000;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            padding: 6px 16px 6px 16px;
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 0px;
+            }
+        }
+    }
+    &-main {
+        &-twin, &-one {
+            border: 1px solid #000;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 6px 16px 6px 16px;
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 0px;
+            }
+        }
+        &-twin {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
     padding: 40px;
     &-block {
         display: flex;
